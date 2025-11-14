@@ -1,5 +1,6 @@
 library(gaia)
 library(reticulate)
+#py_install("tskit")
 tskit <- reticulate::import("tskit")
 
 locations = function(ts)
@@ -18,18 +19,77 @@ locations = function(ts)
   locs
 } #locations
 
+getAccOut <- function(ts,outPrefix,SIGMA=0.025,REP=1){
+	nodes = treeseq_nodes(ts)
+	edges = treeseq_edges(ts)
+	inds = treeseq_individuals(ts)
+	internal_nodes = which(nodes$is_sample != 1L)
+	locs = locations(ts)
+	sample_locations = locs[locs[,2] == 1, c(1,3,4)]
+	ancestor_locations = locs[locs[,2] != 1,c(1,3,4)]
+	sample_centroid = colMeans(sample_locations[,2:3])
+	mpr = treeseq_quadratic_mpr(ts, sample_locations, TRUE)
+	mean_map_rate = sqrt(mpr[[1]] / 2)
+	effective_rate = sqrt(mean(apply(data.matrix(edges), 1L, function(e) {
+	  parent = nodes[e[4]+1, 5]
+	  child = nodes[e[5]+1, 5]
+	  len = nodes[e[4]+1, 3] - nodes[e[5]+1, 3]
+	  from = inds[parent+1, ]$location[1:2]
+	  to = inds[child+1, ]$location[1:2]
+	  sum((from - to)^2) / len
+	})) / 2)
+	ans = data.frame(
+	  as.numeric(SIGMA),
+	  as.integer(REP),
+	  mean_map_rate,
+	  effective_rate
+	)
+	write.table(
+	  ans,
+	  file=paste0(outPrefix,"_rate-estimates.csv",sep=""),
+	  sep=",",
+	  col.names=FALSE,
+	  row.names=FALSE,
+	  append=TRUE
+	)
+	map_x = treeseq_quadratic_mpr_minimize(mpr)
+	
+	e = sqrt(rowSums((map_x[-(1:200),] - ancestor_locations[,2:3])^2)) / max(dist(sample_locations[,2:3]))
+	
+	dist_from_sample_centroid0 = sqrt(
+	  rowSums(sweep(ancestor_locations[, 2:3], 2, sample_centroid)^2))
+	
+	dist_from_sample_centroid = sqrt(
+	  rowSums(sweep(map_x[-(1:200), ], 2, sample_centroid)^2))
+	
+	ans = data.frame(
+	  as.numeric(SIGMA),
+	  as.integer(REP),
+	  internal_nodes-1L,
+	  nodes[internal_nodes, "time"],
+	  e,
+	  dist_from_sample_centroid0,
+	  dist_from_sample_centroid
+	  
+	)
+	
+	write.table(
+	  ans,
+	  file=paste0(outPrefix,"_ancestor-estimates.csv",sep=""),
+	  sep=",",
+	  col.names=FALSE,
+	  row.names=FALSE,
+	  append=TRUE
+	)
+}
 
 #hard coding these to match my file name
-SIGMA <- "0.025"
-REP <- "1"
+#SIGMA <- "0.025"
+#REP <- "1"
 #args = commandArgs(TRUE)
 #SIGMA = args[1]
 #REP = args[2]
-
-TREESEQ <- file.path(
-  "C:/Users/islar/OneDrive/Documents/bradburd_lab",
-  "tree-S0.025-R1.trees"
-)
+TREESEQ <- file.path("tree-S0.025-R1.trees")
 
 #TTREESEQ = file.path(getwd(), "../simulations/trees", sprintf("tree-S%s-R%s.trees", SIGMA, REP))
 #hard coded the name of the tree file im looking at rn 
@@ -41,10 +101,6 @@ idx = match(sample(unique(nodes$individual_id[nodes$is_sample == 1L]), 100L),
             nodes$individual_id)
 
 ts2 = treeseq_simplify(ts, nodes$node_id[c(rbind(idx, idx+1L))])
-nodes = treeseq_nodes(ts2)
-edges = treeseq_edges(ts2)
-inds = treeseq_individuals(ts2)
-internal_nodes = which(nodes$is_sample != 1L)
 #this is where it simplifies 
 
 
@@ -53,86 +109,18 @@ if (extend == "yes"){
   treeseq_write(ts2, "temp.trees") #bc cant extend on gaia object
   temp <- tskit$load("temp.trees") # loading the temporary simplified tree file
   
-  extended_temp   <- ts_py$extend_haplotypes() # extending the temp simplified tree
+  extended_temp   <- temp$extend_haplotypes() # extending the temp simplified tree
   
   extended_temp$dump("temp_extended.trees") # putting extened back into temp 
-  ts2 <- treeseq_load("temp_extended.trees")
+  ts2ex <- treeseq_load("temp_extended.trees")
   # does this overwrite the entire existing tree in ts2?
 }
 
+# for the extended tree:
+getAccOut(ts2ex,outPrefix="ext")
 
-locs = locations(ts2)
-sample_locations = locs[locs[,2] == 1, c(1,3,4)]
-ancestor_locations = locs[locs[,2] != 1,c(1,3,4)]
-sample_centroid = colMeans(sample_locations[,2:3])
-
-start = Sys.time()
-mpr = treeseq_quadratic_mpr(ts2, sample_locations, TRUE)
-stop = Sys.time()
-elapsed = unclass(stop - start)[1]
-
-mean_map_rate = sqrt(mpr[[1]] / 2)
-
-effective_rate = sqrt(mean(apply(data.matrix(edges), 1L, function(e) {
-  parent = nodes[e[4]+1, 5]
-  child = nodes[e[5]+1, 5]
-  len = nodes[e[4]+1, 3] - nodes[e[5]+1, 3]
-  from = inds[parent+1, ]$location[1:2]
-  to = inds[child+1, ]$location[1:2]
-  sum((from - to)^2) / len
-})) / 2)
-
-ans = data.frame(
-  as.numeric(SIGMA),
-  as.integer(REP),
-  mean_map_rate,
-  effective_rate
-)
-write.table(
-  ans,
-  file="rate-estimates.csv",
-  sep=",",
-  col.names=FALSE,
-  row.names=FALSE,
-  append=TRUE
-)
-
-map_x = treeseq_quadratic_mpr_minimize(mpr)
-
-e = sqrt(rowSums((map_x[-(1:200),] - ancestor_locations[,2:3])^2)) / max(dist(sample_locations[,2:3]))
-
-dist_from_sample_centroid0 = sqrt(
-  rowSums(sweep(ancestor_locations[, 2:3], 2, sample_centroid)^2))
-
-dist_from_sample_centroid = sqrt(
-  rowSums(sweep(map_x[-(1:200), ], 2, sample_centroid)^2))
-
-ans = data.frame(
-  as.numeric(SIGMA),
-  as.integer(REP),
-  internal_nodes-1L,
-  nodes[internal_nodes, "time"],
-  e,
-  dist_from_sample_centroid0,
-  dist_from_sample_centroid
-  
-)
-
-write.table(
-  ans,
-  file="ancestor-estimates.csv",
-  sep=",",
-  col.names=FALSE,
-  row.names=FALSE,
-  append=TRUE
-)
+# for the non-extended tree:
+getAccOut(ts2,outPrefix="normie")
 
 
-write.table(
-  elapsed,
-  file="timings-gaia.txt",
-  col.names=FALSE,
-  row.names=FALSE,
-  append=TRUE
-)
 

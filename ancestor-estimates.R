@@ -15,38 +15,6 @@ foo = function(x) {
   cbind(ages[-1], q025, q975)
 }
 
-x = read.csv("C:/Users/islar/OneDrive/Documents/ancestor-estimates.csv", header=FALSE)
-
-png(file="ancestor-estimates.png", width=6.5, height=10, units="in", res=300)
-SIGMA = c(0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0)
-par(oma=c(4,4,0,0), mar=c(1,1,1,1))
-layout(matrix(1:10, 5, 2))
-for (i in 1:10) {
-  idx = x[,1] == SIGMA[i]
-  plot(x[idx,4], x[idx,5], log='x', las=1, bty="l",
-       xlab="Ancestor age",
-       ylab="Ancestor location error",
-       type="n", xaxt="n", yaxt="n", ylim=c(0,0.8))
-  if (i == 5 || i == 10)
-    axis(1, at=c(1,10,100,1000,10000,''))
-  else
-    axis(1, at=c(1,10,100,1000,10000), labels=c('','','','',''))
-  if (i %in% 1:5)
-    axis(2, las=1)
-  else
-    axis(2, seq(0,0.8,.2),labels=rep('',5))
-  if (i %in% 1:5)
-    mtext("Ancestor location error", 2, line=2.5, cex=0.8)
-  if (i == 5 || i == 10)
-    mtext("Ancestor age (generations)", 1, line=2.5, cex=0.8)
-  myhsp(x[idx,4], x[idx,5], colpal="heat", log='x',pch=19)
-  legend("topleft", legend=bquote(paste(sigma, " = ", .(SIGMA[i]))), bty="n")
-  p = foo(x[idx, 4:5])
-  polygon(c(p[,1], rev(p[,1])), c(p[,3],rev(p[,2])), lwd=0.5)
-}
-dev.off()
-
-
 library(LSD)
 # modified from LSD::heatscatterpoints
 myhsp = function(x, y, pch = 19, cexplot = 0.5, nrcol = 30, grid = 100, 
@@ -156,3 +124,24 @@ myhsp = function(x, y, pch = 19, cexplot = 0.5, nrcol = 30, grid = 100,
     contour(d, add = TRUE, nlevels = nlevels, col = color.contour)
   }
 }
+
+vizAcc <- function(accTable){
+  x <- accTable
+  plot(x[,4], x[,5], log='x', las=1, bty="l",
+       xlab="Ancestor age",
+       ylab="Ancestor location error",
+       type="n", xaxt="n", yaxt="n", ylim=c(0,0.8))
+    axis(1, at=c(1,10,100,1000,10000,''))
+    axis(2, las=1)
+  myhsp(x[,4], x[,5], colpal="heat", log='x',pch=19)
+#  legend("topleft", legend=bquote(paste(sigma, " = ", .(SIGMA[i]))), bty="n")
+  p = foo(x[, 4:5])
+  polygon(c(p[,1], rev(p[,1])), c(p[,3],rev(p[,2])), lwd=0.5)
+}
+
+x = read.csv("normie_ancestor-estimates.csv", header=FALSE)
+xe = read.csv("ext_ancestor-estimates.csv", header=FALSE)
+
+par(mfrow=c(1,2))
+	vizAcc(x)
+	vizAcc(xe)
