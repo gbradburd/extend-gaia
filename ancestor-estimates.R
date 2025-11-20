@@ -131,10 +131,10 @@ vizAcc <- function(accTable){
        xlab="Ancestor age",
        ylab="Ancestor location error",
        type="n", xaxt="n", yaxt="n", ylim=c(0,0.8))
-    axis(1, at=c(1,10,100,1000,10000,''))
-    axis(2, las=1)
+  axis(1, at=c(1,10,100,1000,10000,''))
+  axis(2, las=1)
   myhsp(x[,4], x[,5], colpal="heat", log='x',pch=19)
-#  legend("topleft", legend=bquote(paste(sigma, " = ", .(SIGMA[i]))), bty="n")
+  #  legend("topleft", legend=bquote(paste(sigma, " = ", .(SIGMA[i]))), bty="n")
   p = foo(x[, 4:5])
   polygon(c(p[,1], rev(p[,1])), c(p[,3],rev(p[,2])), lwd=0.5)
 }
@@ -142,6 +142,8 @@ vizAcc <- function(accTable){
 x = read.csv("normie_ancestor-estimates.csv", header=FALSE)
 xe = read.csv("ext_ancestor-estimates.csv", header=FALSE)
 
+png(file="ancestor-estimates.png", width=6.5, height=10, units="in", res=300)
 par(mfrow=c(1,2))
-	vizAcc(x)
-	vizAcc(xe)
+vizAcc(x)
+vizAcc(xe)
+dev.off() 
