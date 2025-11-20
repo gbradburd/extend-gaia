@@ -90,6 +90,7 @@ getAccOut <- function(ts,outPrefix,SIGMA=0.025,REP=1){
 #SIGMA = args[1]
 #REP = args[2]
 TREESEQ <- file.path("C:/Users/islar/OneDrive/Documents/bradburd_lab/tree-S0.025-R1.trees")
+TREESEQ <- file.path("tree-S0.025-R1.trees")
 
 #TTREESEQ = file.path(getwd(), "../simulations/trees", sprintf("tree-S%s-R%s.trees", SIGMA, REP))
 #hard coded the name of the tree file im looking at rn 
@@ -103,6 +104,7 @@ idx = match(sample(unique(nodes$individual_id[nodes$is_sample == 1L]), 100L),
 ts2 = treeseq_simplify(ts, nodes$node_id[c(rbind(idx, idx+1L))])
 #this is where it simplifies 
 
+ts3 = treeseq_simplify(ts, nodes$node_id[c(rbind(idx, idx+1L))],keep.unary=TRUE)
 
 extend = "yes" #just so i can control when this runs
 if (extend == "yes"){
@@ -121,5 +123,7 @@ getAccOut(ts2ex,outPrefix="ext")
 
 # for the non-extended tree:
 getAccOut(ts2,outPrefix="normie")
+
+getAccOut(ts3,outPrefix="true_ext")
 
 
