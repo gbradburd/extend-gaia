@@ -19,7 +19,8 @@ locations = function(ts)
   locs
 } #locations
 
-getAccOut <- function(ts,outPrefix,SIGMA=0.025,REP=1){
+getAccOut <- function(ts,outPrefix,SIGMA=0.8,REP=9){
+  # og was SIGMA=0.025,REP= 1
   nodes = treeseq_nodes(ts)
   edges = treeseq_edges(ts)
   inds = treeseq_individuals(ts)
@@ -54,14 +55,21 @@ getAccOut <- function(ts,outPrefix,SIGMA=0.025,REP=1){
   )
   map_x = treeseq_quadratic_mpr_minimize(mpr)
   
-  e = sqrt(rowSums((map_x[-(1:200),] - ancestor_locations[,2:3])^2)) / max(dist(sample_locations[,2:3]))
+  is_ancestor = locs[, "is_sample"] != 1 
+  #find the rows that are ancestors 
   
+  
+  
+  e = sqrt(rowSums((map_x[is_ancestor, ] - ancestor_locations[,2:3])^2)) / max(dist(sample_locations[,2:3]))
+  #e = sqrt(rowSums((map_x[-(1:200),] - ancestor_locations[,2:3])^2)) / max(dist(sample_locations[,2:3]))
+
   dist_from_sample_centroid0 = sqrt(
     rowSums(sweep(ancestor_locations[, 2:3], 2, sample_centroid)^2))
-  
+
   dist_from_sample_centroid = sqrt(
-    rowSums(sweep(map_x[-(1:200), ], 2, sample_centroid)^2))
-  
+    #rowSums(sweep(map_x[-(1:200), ], 2, sample_centroid)^2))
+    rowSums(sweep(map_x[is_ancestor, ], 2, sample_centroid)^2))
+
   ans = data.frame(
     as.numeric(SIGMA),
     as.integer(REP),
@@ -70,9 +78,9 @@ getAccOut <- function(ts,outPrefix,SIGMA=0.025,REP=1){
     e,
     dist_from_sample_centroid0,
     dist_from_sample_centroid
-    
+
   )
-  
+
   write.table(
     ans,
     file=paste0(outPrefix,"_ancestor-estimates.csv",sep=""),
@@ -83,14 +91,9 @@ getAccOut <- function(ts,outPrefix,SIGMA=0.025,REP=1){
   )
 }
 
-#hard coding these to match my file name
-#SIGMA <- "0.025"
-#REP <- "1"
-#args = commandArgs(TRUE)
-#SIGMA = args[1]
-#REP = args[2]
-TREESEQ <- file.path("C:/Users/islar/OneDrive/Documents/bradburd_lab/tree-S0.025-R1.trees")
-TREESEQ <- file.path("tree-S0.025-R1.trees")
+SIGMA = 0.8
+REP = 9
+TREESEQ <- file.path("C:/Users/islar/OneDrive/Documents/bradburd_lab", sprintf("tree-S%s-R%s.trees", SIGMA, REP))
 
 #TTREESEQ = file.path(getwd(), "../simulations/trees", sprintf("tree-S%s-R%s.trees", SIGMA, REP))
 #hard coded the name of the tree file im looking at rn 
@@ -101,29 +104,37 @@ nodes = treeseq_nodes(ts)
 idx = match(sample(unique(nodes$individual_id[nodes$is_sample == 1L]), 100L),
             nodes$individual_id)
 
-ts2 = treeseq_simplify(ts, nodes$node_id[c(rbind(idx, idx+1L))])
+#ts2 = treeseq_simplify(ts, nodes$node_id[c(rbind(idx, idx+1L))])
 #this is where it simplifies 
 
-ts3 = treeseq_simplify(ts, nodes$node_id[c(rbind(idx, idx+1L))],keep.unary=TRUE)
 
 extend = "yes" #just so i can control when this runs
 if (extend == "yes"){
-  treeseq_write(ts2, "temp.trees") #bc cant extend on gaia object
+  treeseq_write(ts, "temp.trees") #bc cant extend on gaia object
+  
+  # changing ts2 to ts to run extension on non-simplified tree 
+  
   temp <- tskit$load("temp.trees") # loading the temporary simplified tree file
   
   extended_temp   <- temp$extend_haplotypes() # extending the temp simplified tree
   
   extended_temp$dump("temp_extended.trees") # putting extened back into temp 
-  ts2ex <- treeseq_load("temp_extended.trees")
-  # does this overwrite the entire existing tree in ts2?
+  tsex <- treeseq_load("temp_extended.trees")
+  
+  #ts2ex = treeseq_simplify(tsex, nodes$node_id[c(rbind(idx, idx+1L))])
+  # trying simplifying after extending 
+ 
 }
 
 # for the extended tree:
-getAccOut(ts2ex,outPrefix="ext")
+getAccOut(tsex,outPrefix="ext")
+# tsex for non-simplified version
+# ts2ex for simplified after extending 
+
 
 # for the non-extended tree:
-getAccOut(ts2,outPrefix="normie")
-
-getAccOut(ts3,outPrefix="true_ext")
+getAccOut(ts,outPrefix="normie") 
+#  ts2 = simplified
+# ts = non-simplified version 
 
 

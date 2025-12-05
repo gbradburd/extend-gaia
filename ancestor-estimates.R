@@ -141,11 +141,11 @@ vizAcc <- function(accTable){
 
 x = read.csv("normie_ancestor-estimates.csv", header=FALSE)
 xe = read.csv("ext_ancestor-estimates.csv", header=FALSE)
-xte = read.csv("true_ext_ancestor-estimates.csv", header=FALSE)
 
 png(file="ancestor-estimates.png", width=6.5, height=10, units="in", res=300)
-par(mfrow=c(1,3))
+par(mfrow=c(1,2))
 vizAcc(x)
+title("Non-Extended Tree")
 vizAcc(xe)
-vizAcc(xte)
+title("Extended Tree")
 dev.off() 
