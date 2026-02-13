@@ -42,6 +42,7 @@ def findUnary(ts):
     return unary_indices
 
 
+
 #function for testing small tree sequences that dont have associated location data
 # cannot use the location function, so takes in made up location data from samples, ancestors, everything
 def small_getAccOut(ts, unary_indices, samples, ancestors, everything, outPrefix):
@@ -130,3 +131,103 @@ def big_getAccOut(ts, unary_indices, outPrefix, sigma, rep):
                       mode='a', header=False, index=False)
     
     return ancestor_df
+
+
+def getAccOut(simp, ext, unary_indices, outPrefix, sigma, rep):
+     # tqdm - package to test timing of things 
+
+    simp_num_trees = simp.num_trees()
+    ext_num_trees = ext.num_trees()
+    simp_num_edges = simp.num_edges()
+    ext_num_edges = ext.num_edges()
+
+    locs = locations(ext)
+    sample_locations = locs[locs[:, 1] == 1][:, [0, 2, 3]]
+    ancestor_locations = locs[locs[:, 1] != 1][:, [0, 2, 3]]
+
+
+    sample_centroid = np.mean(sample_locations[:, 1:], axis=0)
+    # print(sample_centroid)
+
+    simp_mpr = gp.quadratic_mpr(simp, sample_locations)
+    simp_map_x = gp.quadratic_mpr_minimize(simp_mpr)
+
+    ext_mpr = gp.quadratic_mpr(ext, sample_locations)
+    ext_map_x = gp.quadratic_mpr_minimize(ext_mpr)
+    
+    is_unary = np.isin(locs[:, 0], unary_indices)
+    is_ancestor = np.isin(locs[:, 0], unary_indices)
+    target_nodes = is_unary & is_ancestor 
+    target_locations = locs[target_nodes][:, [0, 2, 3]]
+
+    simp_e = np.sqrt(np.sum((simp_map_x[target_nodes] - target_locations[:, 1:2])**2, axis=1)) / np.max(pdist(sample_locations[:, 1:2]))
+    ext_e = np.sqrt(np.sum((ext_map_x[target_nodes] - target_locations[:, 1:2])**2, axis=1)) / np.max(pdist(sample_locations[:, 1:2]))
+    
+    dist_from_sample_centroid0 = np.sqrt(np.sum((target_locations[:, 1:3] - sample_centroid)**2, axis=1))
+
+    simp_dist_from_sample_centroid = np.sqrt(np.sum((simp_map_x[target_nodes] - sample_centroid)**2, axis=1))
+    ext_dist_from_sample_centroid = np.sqrt(np.sum((ext_map_x[target_nodes] - sample_centroid)**2, axis=1))
+    
+    target_node_ids = locs[target_nodes, 0]
+    target_node_times = ext.nodes_time[target_nodes]
+
+    ancestor_df = pd.DataFrame({
+        'node_id': target_node_ids,
+        'node_time': target_node_times,
+        'simp_error': simp_e,
+        'ext_error': ext_e,
+        'dist_from_sample_centroid0': dist_from_sample_centroid0,
+        'simp_dist_from_sample_centroid': simp_dist_from_sample_centroid,
+        'ext_dist_from_sample_centroid': ext_dist_from_sample_centroid
+    })
+
+    static_df = pd.DataFrame({
+        'sigma': sigma,
+        'rep': rep,
+        'simp_num_trees': simp_num_trees,
+        'ext_num_trees': ext_num_trees, 
+        'simp_num_edges': simp_num_edges,
+        'ext_num_edges': ext_num_edges
+    })
+
+    ancestor_df.to_csv(f"{outPrefix}_results.csv",
+                      mode='a', header=True, index=False)
+    
+    static_df.to_csv(f"{outPrefix}_static_info.csv",
+                      mode='a', header=True, index=False)
+    
+    return ancestor_df, static_df
+
+
+
+# could edit locs so it only creates the location array for nodes that are unary?
+
+
+
+# this below is code i found online - testing .....
+
+def span_definition(ts):
+    node_spans = np.zeros(ts.num_nodes)
+    for tree in ts.trees():
+        for u in tree.nodes():
+            node_spans[u] += tree.span
+    return node_spans
+
+def span(ts):
+    num_children = np.zeros(ts.num_nodes, dtype=np.int32)
+    span_start = np.zeros(ts.num_nodes)
+    node_span = np.zeros(ts.num_nodes)
+    
+    for interval, edges_out, edges_in in ts.edge_diffs(include_terminal=True):
+        for edge in edges_out:
+            num_children[edge.parent] -= 1
+            if num_children[edge.parent] == 0:
+                node_span[edge.parent] += interval.left - span_start[edge.parent]
+        for edge in edges_in:
+            if num_children[edge.parent] == 0:
+                span_start[edge.parent] = interval.left
+            num_children[edge.parent] += 1
+    # Set the sample spans afterwards, so internal samples are handled correctly
+    node_span[ts.samples()] = ts.sequence_length
+    return node_span
+
