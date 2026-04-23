@@ -1,0 +1,60 @@
+import tszip
+import numpy as np
+import oat_python as oat
+import tskit
+import pickle
+from time import time
+import itertools as it
+
+INPUT_TSZ = "hgdp_tgp_sgdp_chr6_p.dated.trees.tsz"
+SEQUENCE_LENGTH = 60550000
+
+def analyze_trees(ts, window):
+    start_time = time()
+    # find the edges within the tree sequence that are within the window
+    edges_kept = np.logical_and(np.less_equal(np.maximum(ts.edges_left, window[0]), np.minimum(ts.edges_right,window[1])), np.not_equal(ts.edges_right, window[0]))
+    ts_edges = np.vstack((ts.edges_child[edges_kept], ts.edges_parent[edges_kept]), dtype=int).T.tolist()
+    decomposition = oat.core.dowker.BoundaryMatrixDecompositionDowker(
+        dowker_simplices = ts_edges,
+        max_homology_dimension=1,
+    )
+    homology = decomposition.homology()
+    num_cycles = homology.shape[0]
+    homology.insert(0, 'window left', np.repeat(window[0], num_cycles))
+    homology.insert(1, 'window right', np.repeat(window[1], num_cycles))
+    end_time = time()
+    homology.insert(6, 'runtime', np.repeat(end_time-start_time, num_cycles))
+    start_time = time()
+    bettis = decomposition.fundamental_subspace_dimensions()
+    end_time = time()
+    bettis.insert(0, 'window left', np.repeat(window[0], 2))
+    bettis.insert(1, 'window right', np.repeat(window[1], 2))
+    bettis.insert(2, 'dimension', np.array([0,1]))
+    bettis.insert(3, 'runtime', np.repeat(end_time-start_time, 2))
+    return {'homology': homology, 'bettis': bettis}
+
+rule process_window:
+    output:
+        processed_file="processed_{start}_{end}.pkl"
+    run:
+        ts = tszip.decompress(config['data_dir'] + "/" + INPUT_TSZ)
+        start = int(wildcards.start)
+        end = int(wildcards.end)
+        tree = ts.first()
+        tree.seek(start)
+        w = (None, tree.interval[0])
+        results = {}
+        while w[1] < end and tree.next():
+            w = (w[1], min(tree.interval[1], end))
+            print(w)
+            results[w] = analyze_trees(ts, w)
+        with open(output.processed_file, 'wb') as f:
+            pickle.dump(results, f)
+
+
+STEP_SIZE = 500_000
+
+
+rule all:
+    input:
+        [f"processed_{start}_{end}.pkl" for start, end in it.pairwise(range(0, SEQUENCE_LENGTH + STEP_SIZE, STEP_SIZE))]

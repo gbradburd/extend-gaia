@@ -3,4 +3,3 @@ bioenv/
 venv/
 ENV/
 *.trees
-pipeline/

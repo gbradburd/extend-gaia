@@ -1,0 +1,921 @@
+Assuming unrestricted shared filesystem usage.
+host: Halley
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+all                   1
+process_window      122
+total               123
+
+Select jobs to execute...
+Execute 20 jobs...
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_7500000_8000000.pkl
+    jobid: 16
+    reason: Missing output files: processed_7500000_8000000.pkl
+    wildcards: start=7500000, end=8000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_12500000_13000000.pkl
+    jobid: 26
+    reason: Missing output files: processed_12500000_13000000.pkl
+    wildcards: start=12500000, end=13000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_8000000_8500000.pkl
+    jobid: 17
+    reason: Missing output files: processed_8000000_8500000.pkl
+    wildcards: start=8000000, end=8500000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_8500000_9000000.pkl
+    jobid: 18
+    reason: Missing output files: processed_8500000_9000000.pkl
+    wildcards: start=8500000, end=9000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_9000000_9500000.pkl
+    jobid: 19
+    reason: Missing output files: processed_9000000_9500000.pkl
+    wildcards: start=9000000, end=9500000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_9500000_10000000.pkl
+    jobid: 20
+    reason: Missing output files: processed_9500000_10000000.pkl
+    wildcards: start=9500000, end=10000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_10500000_11000000.pkl
+    jobid: 22
+    reason: Missing output files: processed_10500000_11000000.pkl
+    wildcards: start=10500000, end=11000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_11000000_11500000.pkl
+    jobid: 23
+    reason: Missing output files: processed_11000000_11500000.pkl
+    wildcards: start=11000000, end=11500000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_1500000_2000000.pkl
+    jobid: 4
+    reason: Missing output files: processed_1500000_2000000.pkl
+    wildcards: start=1500000, end=2000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_26500000_27000000.pkl
+    jobid: 54
+    reason: Missing output files: processed_26500000_27000000.pkl
+    wildcards: start=26500000, end=27000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_44000000_44500000.pkl
+    jobid: 89
+    reason: Missing output files: processed_44000000_44500000.pkl
+    wildcards: start=44000000, end=44500000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_6500000_7000000.pkl
+    jobid: 14
+    reason: Missing output files: processed_6500000_7000000.pkl
+    wildcards: start=6500000, end=7000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_21500000_22000000.pkl
+    jobid: 44
+    reason: Missing output files: processed_21500000_22000000.pkl
+    wildcards: start=21500000, end=22000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_11500000_12000000.pkl
+    jobid: 24
+    reason: Missing output files: processed_11500000_12000000.pkl
+    wildcards: start=11500000, end=12000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_16500000_17000000.pkl
+    jobid: 34
+    reason: Missing output files: processed_16500000_17000000.pkl
+    wildcards: start=16500000, end=17000000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_14000000_14500000.pkl
+    jobid: 29
+    reason: Missing output files: processed_14000000_14500000.pkl
+    wildcards: start=14000000, end=14500000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_19000000_19500000.pkl
+    jobid: 39
+    reason: Missing output files: processed_19000000_19500000.pkl
+    wildcards: start=19000000, end=19500000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_4000000_4500000.pkl
+    jobid: 9
+    reason: Missing output files: processed_4000000_4500000.pkl
+    wildcards: start=4000000, end=4500000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_49000000_49500000.pkl
+    jobid: 99
+    reason: Missing output files: processed_49000000_49500000.pkl
+    wildcards: start=49000000, end=49500000
+    resources: tmpdir=/tmp
+[Wed Nov 19 10:08:08 2025]
+localrule process_window:
+    output: processed_29000000_29500000.pkl
+    jobid: 59
+    reason: Missing output files: processed_29000000_29500000.pkl
+    wildcards: start=29000000, end=29500000
+    resources: tmpdir=/tmp
+Select jobs to execute...
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=8000000,end=8500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:15 2025]
+Error in rule process_window:
+    message: None
+    jobid: 17
+    output: processed_8000000_8500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=8500000,end=9000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 18
+    output: processed_8500000_9000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=19000000,end=19500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 39
+    output: processed_19000000_19500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=29000000,end=29500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 59
+    output: processed_29000000_29500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=21500000,end=22000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 44
+    output: processed_21500000_22000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=9500000,end=10000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 20
+    output: processed_9500000_10000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=49000000,end=49500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 99
+    output: processed_49000000_49500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=1500000,end=2000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 4
+    output: processed_1500000_2000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=26500000,end=27000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 54
+    output: processed_26500000_27000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=10500000,end=11000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=4000000,end=4500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 22
+    output: processed_10500000_11000000.pkl
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 9
+    output: processed_4000000_4500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=7500000,end=8000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 16
+    output: processed_7500000_8000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=12500000,end=13000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 26
+    output: processed_12500000_13000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=16500000,end=17000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:16 2025]
+Error in rule process_window:
+    message: None
+    jobid: 34
+    output: processed_16500000_17000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=14000000,end=14500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 29
+    output: processed_14000000_14500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=9000000,end=9500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 19
+    output: processed_9000000_9500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=11500000,end=12000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 24
+    output: processed_11500000_12000000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=44000000,end=44500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 89
+    output: processed_44000000_44500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=11000000,end=11500000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 23
+    output: processed_11000000_11500000.pkl
+Traceback (most recent call last):
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 232, in spawn_job
+    subprocess.check_call(cmd, shell=True)
+
+  File "/usr/lib/python3.12/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+
+subprocess.CalledProcessError: Command 'cd /home/hfritze/tdarg/pipeline/workflow && /home/hfritze/bioenv/bin/python3 -m snakemake --snakefile '/home/hfritze/tdarg/pipeline/workflow/Snakefile' --target-jobs 'process_window:start=6500000,end=7000000' --allowed-rules process_window --cores 20 --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --no-hooks --nolock --ignore-incomplete --rerun-triggers params code input mtime software-env --conda-frontend 'conda' --shared-fs-usage storage-local-copies sources software-deployment persistence source-cache input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/hfritze/bioenv/bin' --runtime-source-cache-path '/home/hfritze/.cache/snakemake/snakemake/source-cache/runtime-cache/tmpf4amwf3b' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --quiet progress rules host --mode 'subprocess' --local-groupid 'local'' returned non-zero exit status 1.
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+
+  File "/home/hfritze/bioenv/lib/python3.12/site-packages/snakemake/executors/local.py", line 234, in spawn_job
+    raise SpawnedJobError()
+
+snakemake.exceptions.SpawnedJobError
+
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 14
+    output: processed_6500000_7000000.pkl
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 16
+    output: processed_7500000_8000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 26
+    output: processed_12500000_13000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 20
+    output: processed_9500000_10000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 14
+    output: processed_6500000_7000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 44
+    output: processed_21500000_22000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 4
+    output: processed_1500000_2000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 39
+    output: processed_19000000_19500000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 59
+    output: processed_29000000_29500000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 99
+    output: processed_49000000_49500000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 54
+    output: processed_26500000_27000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 9
+    output: processed_4000000_4500000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 34
+    output: processed_16500000_17000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 29
+    output: processed_14000000_14500000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 19
+    output: processed_9000000_9500000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 89
+    output: processed_44000000_44500000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 23
+    output: processed_11000000_11500000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 18
+    output: processed_8500000_9000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 24
+    output: processed_11500000_12000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 22
+    output: processed_10500000_11000000.pkl
+[Wed Nov 19 10:08:17 2025]
+Error in rule process_window:
+    message: None
+    jobid: 17
+    output: processed_8000000_8500000.pkl
+Complete log(s): /home/hfritze/tdarg/pipeline/workflow/.snakemake/log/2025-11-19T100805.815162.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

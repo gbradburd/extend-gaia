@@ -1,0 +1,20 @@
+[project]
+name = "tda"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.7",
+    "msprime>=1.3.4",
+    "nbclassic>=1.3.3",
+    "networkx>=3.5",
+    "numpy>=2.3.4",
+    "oat-python>=0.2.0",
+    "plotly>=6.4.0",
+    "scipy>=1.16.3",
+    "snakemake>=9.13.7",
+    "tskit>=0.6.4",
+    "tszip>=0.2.6",
+]

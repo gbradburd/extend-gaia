@@ -1,0 +1,88 @@
+import numpy as np
+import tszip
+import tskit
+import pickle
+import itertools as it
+
+INPUT_TSZ = # file name with tsz? "hgdp_tgp_sgdp_chr6_p.dated.trees.tsz" ?
+INPUT_ETS = # ets file??
+SEQUENCE_LENGTH = # would this be the number of trees?
+STEP_SIZE = # would this be the number of nodes in each tree?
+
+def get_span_stats(ts, ets, node_map, window):
+
+    added_span = np.zeros(ets.num_nodes)
+    wrong_added_span = np.zeros(ets.num_nodes)
+
+    # and then how i integrate the window in here i am not sure?
+    # make sure the interval is within th ewindow looking at, but how??
+    for interval, t, et in ts.coiterate(ets):
+        interval_length = interval[1] - interval[0]
+        t_nodes = list(t.nodes())
+        #et_nodes = list(et.nodes())
+        for n in et.nodes():
+            # print("et nodes", et_nodes)
+            if et.num_children(n) == 1:
+                added_span[n] += interval_length
+            #on = node_map[n]
+            # for x in on:
+            node = ets.node(n)
+            on = node_map[node.metadata["slim_id"]]
+            if on not in t_nodes:
+                assert et.num_children(n) == 1, print(interval, n, et.num_children(n), et.time(n))
+                wrong_added_span[n] += interval_length
+                #print("added ", interval_length, " to wrong_added_span")
+    # assert not np.array_equal(added_span, wrong_added_span)
+    return {'added_span': added_span, 'wrong_added_span': wrong_added_span}
+
+rule create_node_map:
+    input: 
+        ts = config['data_dir'] + "/" + INPUT_TSZ
+    output: 
+        node_map_file = "node_map.pkl"
+    run:
+        ts = tszip.decompress(input.ts_file)
+        node_map = {}
+
+        for n in ts.nodes():
+            slim_id = n.metadata["slim_id"]
+            assert slim_id not in node_map
+            node_map[slim_id] = n.id
+
+        with open(output.node_map_file, 'wb') as f:
+            pickle.dump(node_map, f)
+
+rule process_window:
+    input:
+        ts_file = config['data_dir'] + "/" + INPUT_TSZ,
+        ets_file = config['data_dir'] + "/" + INPUT_ETS,
+        node_map = "node_map.pkl"
+    output:
+        processed_file="processed_{start}_{end}.pkl"
+    run:
+        ts = tszip.decompress(input.ts_file)
+        ets = tskit.load(input.ets_file)
+
+        with open(input.node_map, 'rb') as f:
+            node_map = pickle.load(f)
+
+        start = int(wildcards.start)
+        end = int(wildcards.end)
+
+        # results = get_span_stats(ts, ets, node_map, (start, end))
+
+        tree = ts.first()
+        tree.seek(start)
+        window = (None, tree.interval[0])
+        results = {}
+        while window[1] < end and tree.next():
+            window = (window[1], min(tree.interval[1], end))
+            print(window)
+            results[window] = get_span_stats(ts, ets, window)
+        with open(output.processed_file, 'wb') as f:
+            pickle.dump(results, f)
+
+
+rule all:
+    input:
+        [f"processed_{start}_{end}.pkl" for start, end in it.pairwise(range(0, SEQUENCE_LENGTH + STEP_SIZE, STEP_SIZE))]
