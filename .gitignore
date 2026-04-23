@@ -2,3 +2,5 @@ bioenv/
 .venv/
 venv/
 ENV/
+*.trees
+pipeline/
