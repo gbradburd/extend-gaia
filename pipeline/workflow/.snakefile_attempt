@@ -4,8 +4,8 @@ import tskit
 import pickle
 import itertools as it
 
-INPUT_TSZ = # file name with tsz? "hgdp_tgp_sgdp_chr6_p.dated.trees.tsz" ?
-INPUT_ETS = # ets file??
+INPUT_TS = "tree-S0.2-R0.trees"
+# INPUT_ETS = # ets file??
 SEQUENCE_LENGTH = # would this be the number of trees?
 STEP_SIZE = # would this be the number of nodes in each tree?
 
