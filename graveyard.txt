@@ -1,0 +1,427 @@
+def old_frame_heat_map(simp, ets):
+    sigma = simp[0].values[0]
+    rep = simp[1].values[0]
+    fig = go.Figure(go.Histogram2d(
+    histnorm="density",
+    x = simp.iloc[:, 3],
+    y = simp.iloc[:, 4]-ets.iloc[:, 4],
+    autobinx=False,
+    xbins=dict(start=250, end=2250, size=50),
+    autobiny=False,
+    ybins=dict(start=-0.15, end=0.15, size=0.01)
+    ))
+    fig.update_layout(title=f"S{sigma} R{rep} Heatmap of Error Difference by Time", xaxis_title='Time', yaxis_title='Simplified Error - Extended Error')
+    fig.show()
+    
+
+
+    def old_frame_error_over_time(simp, ets):
+    fig = go.Figure()
+
+    sigma = simp[0].values[0]
+    rep = simp[1].values[0]
+
+    fig.add_trace(go.Scatter(x=ets.iloc[:, 3], y = ets.iloc[:, 4], mode='markers', name='Extended'))
+    fig.add_trace(go.Scatter(x=simp.iloc[:, 3], y = simp.iloc[:, 4], mode='markers', name='Simplified'))
+
+    fig.update_layout(title=f"S{sigma} R{rep} Error over time", xaxis_title='Time', yaxis_title='Error')
+    fig.show()
+
+
+
+    def old_frame_error_difference_over_time(simp, ets):
+    fig = go.Figure()
+
+    # fig.add_trace(go.Scatter(x=S1_1_R2_ets.iloc[:, 3], y = S1_1_R2_ets.iloc[:, 4], mode='markers', marker=dict(opacity=0.5), name='Extended'))
+    # fig.add_trace(go.Scatter(x=S1_1_R2_simp.iloc[:, 3], y = S1_1_R2_simp.iloc[:, 4], mode='markers', marker=dict(opacity=0.5), name='Simplified'))
+    sigma = simp[0].values[0]
+    rep = simp[1].values[0]
+    fig.add_trace(go.Scatter(x=np.arange(ets.shape[0]), y=simp.iloc[:, 4]-ets.iloc[:, 4],  mode='markers'))
+
+    fig.update_layout(title=f"S{sigma} R{rep} Error Difference Over Time", xaxis_title='Time', yaxis_title='Simplified Error- Extended Error')
+    fig.show()
+
+
+
+
+
+    # # ets_error = pd.read_csv("/home/islar/bradburdlab/tree_project/unary_project/S0.5-R3_ext_ancestor-estimates.csv", header=None, usecols=[4])
+# # simp_error = pd.read_csv("/home/islar/bradburdlab/tree_project/unary_project/S0.5-R3_simp_ancestor-estimates.csv", header=None, usecols=[4])
+# S0_5_R3_ets = pd.read_csv("S0.5-R3_ext_ancestor-estimates.csv", header=None)
+# S0_5_R3_simp = pd.read_csv("S0.5-R3_simp_ancestor-estimates.csv", header=None)
+
+# S1_1_R2_ets = pd.read_csv("S1.1-R2_ext_ancestor-estimates.csv", header=None)
+# S1_1_R2_simp = pd.read_csv("S1.1-R2_simp_ancestor-estimates.csv", header=None)
+
+# S0_8_R8_ets = pd.read_csv("S0.8-R8_ext_ancestor-estimates.csv", header=None)
+# S0_8_R8_simp = pd.read_csv("S0.8-R8_simp_ancestor-estimates.csv", header=None)
+
+# S0_5_R5_ets = pd.read_csv("S0.5-R5_ext_ancestor-estimates.csv", header=None)
+# S0_5_R5_simp = pd.read_csv("S0.5-R5_simp_ancestor-estimates.csv", header=None)
+
+# S0_5_R4_ets = pd.read_csv("S0.5-R4_ext_ancestor-estimates.csv", header=None)
+# S0_5_R4_simp = pd.read_csv("S0.5-R4_simp_ancestor-estimates.csv", header=None)
+
+# S0_2_R0_ets = pd.read_csv("s0.2_R0_ext_ancestor-estimates.csv", header=None)
+# S0_2_R0_simp = pd.read_csv("S0.2-R0_simp_ancestor-estimates.csv", header=None)
+
+# S1_1_R2_nodes = pd.read_csv("tree-S1.1-R2_new_node_stats.csv")
+# S1_1_R2_results = pd.read_csv("tree-S1.1-R2_new_results.csv")
+# S1_1_R2_static = pd.read_csv("tree-S1.1-R2_new_static_info.csv")
+
+# S0_8_R0_nodes = pd.read_csv("tree-S0.8-R0_new_node_stats.csv")
+# S0_8_R0_results = pd.read_csv("tree-S0.8-R0_new_results.csv")
+# S0_8_R0_static = pd.read_csv("tree-S0.8-R0_new_static_info.csv")
+
+# S0_5_R3_nodes = pd.read_csv("tree-S0.5-R3_new_node_stats.csv")
+# S0_5_R3_results = pd.read_csv("tree-S0.5-R3_new_results.csv")
+# S0_5_R3_static = pd.read_csv("tree-S0.5-R3_new_static_info.csv")
+
+
+# S1_1_R2_results.head()
+# # column 4 is error 
+# # df = pd.read_csv('your_file.csv', index_col=0)
+# #         'sigma': np.repeat(sigma, target_node_ids.shape[0]),
+# #         'rep': np.repeat(rep, target_node_ids.shape[0]),
+# #         'node_id': target_node_ids,
+# #         'node_time': target_node_times,
+# #         'error': e,
+# #         'dist_from_sample_centroid0': dist_from_sample_centroid0,
+# #         'dist_from_sample_centroid': dist_from_sample_centroid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def error_difference_by_time_bin(results, static):
+#     sigma = static['sigma'].values[0]
+#     rep = static['rep'].values[0]
+#     bins = [0, 250, 500, 750, 1000, 1250, 1500, 1750, np.inf]
+#     labels = ['0-250', '250-500', '500-750', '750-1000', '1000-1250', '1250-1500', '1500-1750', '1750+']
+
+    
+#     results['time_bin'] = pd.cut(results['node_time'], bins=bins, labels=labels)
+#     results['time_bin'] = pd.cut(results['node_time'], bins=bins, labels=labels)
+
+#     fig = make_subplots(rows=2, cols=4, subplot_titles=labels)
+    
+
+#     for idx, bin_label in enumerate(labels):
+#         row = idx // 4 + 1
+#         col = idx % 4 + 1
+    
+#         simp_errors = results[results['time_bin'] == bin_label]['simp_error']
+#         ets_errors = results[results['time_bin'] == bin_label]['ets_error']
+
+      
+
+#         fig.add_trace(go.Histogram(x=simp_errors-ets_errors, name='Simplified Error - Extended Error',
+#                                     opacity=0.6, marker_color='red',
+#                                     showlegend=(idx == 0)),
+#                         row=row, col=col)
+
+#     fig.update_layout(barmode='overlay', title=f"S{sigma} R{rep} Error Difference by Time Bin", height=600)
+#     fig.show()
+
+
+
+def old_frame_error_difference_by_time_bin(simp, ets):
+    bins = [0, 250, 500, 750, 1000, 1250, 1500, 1750, np.inf]
+    labels = ['0-250', '250-500', '500-750', '750-1000', '1000-1250', '1250-1500', '1500-1750', '1750+']
+
+    sigma = simp[0].values[0]
+    rep = simp[1].values[0]
+
+    simp['time_bin'] = pd.cut(simp[3], bins=bins, labels=labels)
+    ets['time_bin'] = pd.cut(ets[3], bins=bins, labels=labels)
+
+
+    fig = make_subplots(rows=2, cols=4, subplot_titles=labels)
+    
+
+    for idx, bin_label in enumerate(labels):
+        row = idx // 4 + 1
+        col = idx % 4 + 1
+    
+        simp_errors = simp[simp['time_bin'] == bin_label][4]
+        ets_errors = ets[ets['time_bin'] == bin_label][4]
+
+      
+
+        fig.add_trace(go.Histogram(x=simp_errors-ets_errors, name='Simplified Error - Extended Error',
+                                    opacity=0.6, marker_color='red',
+                                    showlegend=(idx == 0)),
+                        row=row, col=col)
+
+    fig.update_layout(barmode='overlay', title=f"S{sigma} R{rep} Error Difference by Time Bin", height=600)
+    fig.show()
+
+#spit out the mean of each time bin and then plot that y val is avg error over time bin 
+
+
+
+# def avg_error_difference_by_time_bin(results, static):
+#     sigma = static['sigma'].values[0]
+#     rep = static['rep'].values[0]
+#     bins = [0, 250, 500, 750, 1000, 1250, 1500, 1750, np.inf]
+#     labels = ['0-250', '250-500', '500-750', '750-1000', '1000-1250', '1250-1500', '1500-1750', '1750+']
+
+#     results['time_bin'] = pd.cut(results['node_time'], bins=bins, labels=labels)
+#     results['time_bin'] = pd.cut(results['node_time'], bins=bins, labels=labels)
+
+#     fig = go.Figure()
+
+#    #fig = make_subplots(rows=2, cols=4, subplot_titles=labels)
+#     array = np.zeros(8)
+#     count = 0
+
+#     for idx, bin_label in enumerate(labels):
+#         row = idx // 4 + 1
+#         col = idx % 4 + 1
+        
+        
+#         simp_errors = results[results['time_bin'] == bin_label]['simp_error']
+#         avg_simp_errors = np.mean(simp_errors)
+#         ets_errors = results[results['time_bin'] == bin_label]['ets_error']
+#         avg_ets_errors = np.mean(ets_errors)
+#         x = avg_simp_errors - avg_ets_errors
+#         array[count] = x
+#         count = count + 1
+#     fig.add_trace(go.Scatter(x=labels, y=array,  mode='markers'))
+
+#     fig.update_layout(title=f"S{sigma} R{rep} Average Error Difference by Time Bin", 
+#                         xaxis_title='Time Bins', yaxis_title='Average Simplified Error - Extended Error')
+#     fig.show()
+    
+  
+def old_frame_avg_error_difference_by_time_bin(simp, ets):
+   bins = [0, 250, 500, 750, 1000, 1250, 1500, 1750, np.inf]
+   labels = ['0-250', '250-500', '500-750', '750-1000', '1000-1250', '1250-1500', '1500-1750', '1750+']
+
+   sigma = simp[0].values[0]
+   rep = simp[1].values[0]
+
+   simp['time_bin'] = pd.cut(simp[3], bins=bins, labels=labels)
+   ets['time_bin'] = pd.cut(ets[3], bins=bins, labels=labels)
+
+   fig = go.Figure()
+
+   #fig = make_subplots(rows=2, cols=4, subplot_titles=labels)
+   array = np.zeros(8)
+   count = 0
+
+   for idx, bin_label in enumerate(labels):
+      row = idx // 4 + 1
+      col = idx % 4 + 1
+      
+    
+      simp_errors = simp[simp['time_bin'] == bin_label][4]
+      avg_simp_errors = np.mean(simp_errors)
+      ets_errors = ets[ets['time_bin'] == bin_label][4]
+      avg_ets_errors = np.mean(ets_errors)
+      x = avg_simp_errors - avg_ets_errors
+      array[count] = x
+      count = count + 1
+   fig.add_trace(go.Scatter(x=labels, y=array,  mode='markers'))
+
+   fig.update_layout(title=f"S{sigma} R{rep} Average Error Difference by Time Bin", 
+                     xaxis_title='Time Bins', yaxis_title='Average Simplified Error - Extended Error')
+   fig.show()
+    
+  def old_frame_error_vs_sample_centroid0(simp, ets):
+    fig = go.Figure()
+    sigma = simp[0].values[0]
+    rep = simp[1].values[0]
+
+    fig.add_trace(go.Scatter(x=ets.iloc[:, 5], y = ets.iloc[:, 4], mode='markers', name='Extended'))
+    fig.add_trace(go.Scatter(x=simp.iloc[:, 5], y = simp.iloc[:, 4], mode='markers', name='Simplified'))
+
+    fig.update_layout(title=f"S{sigma} R{rep} Error Over Distance From Sample Centroid0", xaxis_title='Distance From Sample Centroid0', yaxis_title='Error')
+    fig.show()
+
+
+# column 4 is error 
+# df = pd.read_csv('your_file.csv', index_col=0)
+#       0  'sigma': np.repeat(sigma, target_node_ids.shape[0]),
+#       1  'rep': np.repeat(rep, target_node_ids.shape[0]),
+#       2  'node_id': target_node_ids,
+#       3  'node_time': target_node_times,
+#       4  'error': e,
+#       5  'dist_from_sample_centroid0': dist_from_sample_centroid0,
+#       6  'dist_from_sample_centroid': dist_from_sample_centroid
+
+
+
+# def error_diff_by_added_span_bin(results, static ):
+#     bins = [0, 12500000, 25000000, 37500000, 50000000, 62500000, 75000000, 87500000, np.inf]
+#     labels = ['0-12,500,000', '12,500,000-25,000,000', '25,000,000-37,500,000', '37,500,000-50,000,000', '50,000,000-62,500,000', '62,500,000-75,000,000', '75,000,000-87,500,000', '87,500,000+']
+
+#     sigma = static['sigma'].values[0]
+#     rep = static['rep'].values[0]
+
+#     results['added_span_bin'] = pd.cut(results['added_span'], bins=bins, labels=labels)
+#     fig = make_subplots(rows=2, cols=4, subplot_titles=labels)
+    
+#     for idx, bin_label in enumerate(labels):
+#         row = idx // 4 + 1
+#         col = idx % 4 + 1
+    
+#         simp_errors = results[results['added_span_bin'] == bin_label]['simp_error']
+#         ets_errors = results[results['added_span_bin'] == bin_label]['ets_error']
+
+      
+
+#         fig.add_trace(go.Histogram(x=simp_errors-ets_errors, name='Simplified Error - Extended Error',
+#                                     opacity=0.6, marker_color='red',
+#                                     showlegend=(idx == 0)),
+#                         row=row, col=col)
+
+#     fig.update_layout(barmode='overlay', title=f"S{sigma} R{rep} Error Difference by Added Span Bin", height=600)
+#     fig.show()
+
+
+# def avg_error_difference_by_added_span_bin(results, static):
+#     bins = [0, 12500000, 25000000, 37500000, 50000000, 62500000, 75000000, 87500000, np.inf]
+#     labels = ['0-12,500,000', '12,500,000-25,000,000', '25,000,000-37,500,000', '37,500,000-50,000,000', '50,000,000-62,500,000', '62,500,000-75,000,000', '75,000,000-87,500,000', '87,500,000+']
+
+#     results['added_span_bin'] = pd.cut(results['added_span'], bins=bins, labels=labels)
+
+#     sigma = static['sigma'].values[0]
+#     rep = static['rep'].values[0]
+
+#     array = np.zeros(8)
+#     count = 0
+
+#     fig = go.Figure()
+
+#     for idx, bin_label in enumerate(labels):
+#         row = idx // 4 + 1
+#         col = idx % 4 + 1 
+
+#         simp_errors = results[results['added_span_bin'] == bin_label]['simp_error']
+#         avg_simp_errors = np.mean(simp_errors)
+#         ets_errors = results[results['added_span_bin'] == bin_label]['ets_error']
+#         avg_ets_errors = np.mean(ets_errors)
+#         x = avg_simp_errors - avg_ets_errors
+#         array[count] = x
+#         count = count + 1
+    
+#     fig.add_trace(go.Scatter(x=labels, y=array,  mode='markers'))
+#     fig.update_layout(title=f"S{sigma} R{rep} Average Error Difference by Added Span Bin", 
+#                      xaxis_title='Added Span Bins', yaxis_title='Average Simplified Error - Extended Error')
+    
+#     fig.show()
+
+    
+
+    def old_frame_error_vs_sample_centroid(simp, ets):
+    fig = go.Figure()
+    sigma = simp[0].values[0]
+    rep = simp[1].values[0]
+    fig.add_trace(go.Scatter(x=ets.iloc[:, 6], y = ets.iloc[:, 4], mode='markers', name='Extended'))
+    fig.add_trace(go.Scatter(x=simp.iloc[:, 6], y = simp.iloc[:, 4], mode='markers', name='Simplified'))
+
+    fig.update_layout(title=f"S{sigma} R{rep} Error Over Distance From Sample Centroid", xaxis_title='Distance From Sample Centroid', yaxis_title='Error')
+    fig.show()
+
+
+
+
+
+    def error_diff_by_num_children_bin(results, nodes, static ):
+    bins = [0, 1, 2, 3, 5, 8, 12, 20, np.inf]
+    labels = ['0', '1', '2', '3-4', '5-7', '8-11', '12-19', '20+']
+
+    sigma = static['sigma'].values[0]
+    rep = static['rep'].values[0]
+
+    results['num_children_bin'] = pd.cut(nodes['num_children'], bins=bins, labels=labels)
+    fig = make_subplots(rows=2, cols=4, subplot_titles=labels)
+    
+    for idx, bin_label in enumerate(labels):
+        row = idx // 4 + 1
+        col = idx % 4 + 1
+    
+        simp_errors = results[results['num_children_bin'] == bin_label]['simp_error']
+        ets_errors = results[results['num_children_bin'] == bin_label]['ets_error']
+
+        fig.add_trace(go.Histogram(x=simp_errors-ets_errors, name='Simplified Error - Extended Error',
+                                    opacity=0.6, marker_color='red',
+                                    showlegend=(idx == 0)),
+                        row=row, col=col)
+
+    fig.update_layout(barmode='overlay', title=f"S{sigma} R{rep} Error Difference by Number of Children Bin", height=600)
+    fig.show()
+
+
+
+
+
+
+
+
+
+
+
+
+    # def avg_error_diff_by_num_children_bin(results, nodes, static):
+#     bins = [0, 1, 2, 3, 5, 8, 12, 20, np.inf]
+#     labels = ['0', '1', '2', '3-4', '5-7', '8-11', '12-19', '20+']
+
+#     results['num_children_bin'] = pd.cut(nodes['num_children'], bins=bins, labels=labels)
+
+#     sigma = static['sigma'].values[0]
+#     rep = static['rep'].values[0]
+
+#     array = np.zeros(8)
+#     count = 0
+
+#     fig = go.Figure()
+
+#     for idx, bin_label in enumerate(labels):
+#         row = idx // 4 + 1
+#         col = idx % 4 + 1 
+
+#         simp_errors = results[results['num_children_bin'] == bin_label]['simp_error']
+#         avg_simp_errors = np.mean(simp_errors)
+#         ets_errors = results[results['num_children_bin'] == bin_label]['ets_error']
+#         avg_ets_errors = np.mean(ets_errors)
+#         x = avg_simp_errors - avg_ets_errors
+#         array[count] = x
+#         count = count + 1
+    
+#     fig.add_trace(go.Scatter(x=labels, y=array,  mode='markers'))
+#     fig.update_layout(title=f"S{sigma} R{rep} Average Error Difference by Number of Children Bin", 
+#                      xaxis_title='Number of Children Bins', yaxis_title='Average Simplified Error - Extended Error')
+    
+#     fig.show()
+
+
+
+
+
+def heat_map_avg(results0, results1, results2, results3, static, prefix):
+    sigma = static['sigma'].values[0]
+    results = pd.concat([results0, results1, results2, results3], ignore_index=True)
+
+    fig = go.Figure(go.Histogram2d(
+    histnorm="density",
+    x = results.iloc[:, 1],
+    y = results.iloc[:, 2] - results.iloc[:, 3],
+    autobinx=False,
+    xbins=dict(start=250, end=2250, size=50),
+    autobiny=False,
+    ybins=dict(start=-0.15, end=0.15, size=0.01)
+    ))
+    fig.update_layout(title=f"Averaged Sigma {sigma} Heatmap of Error Difference in {prefix} Nodes by Time", xaxis_title='Time', yaxis_title='Simplified Error - Extended Error')
+    fig.show()

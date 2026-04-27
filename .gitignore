@@ -3,3 +3,4 @@ bioenv/
 venv/
 ENV/
 *.trees
+*.csv
