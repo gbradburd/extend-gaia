@@ -425,3 +425,60 @@ def heat_map_avg(results0, results1, results2, results3, static, prefix):
     ))
     fig.update_layout(title=f"Averaged Sigma {sigma} Heatmap of Error Difference in {prefix} Nodes by Time", xaxis_title='Time', yaxis_title='Simplified Error - Extended Error')
     fig.show()
+
+
+
+
+
+
+#here ts is the unsimplified tree
+def get_node_stats(ts):
+    #nodes = list(ts.nodes())
+    nodes = np.array(list(ts.nodes()))
+    node_ids = np.array([n.id for n in nodes])
+    # Find the samples
+    #is_sample = np.asarray(np.isin(nodes, ts.samples()), dtype=int)
+    is_sample = np.asarray(np.isin(node_ids, ts.samples()), dtype=int)
+    # Find all the other things (this requires checking tree by tree)
+    tree = ts.first()
+    start = tree.interval[0] 
+    end = ts.sequence_length
+    num_children = np.zeros(nodes.shape[0])
+    num_parents = np.zeros(nodes.shape[0])
+    distinct_children, distinct_parents, distinct_populations = list(), list(), list()
+    is_root = np.zeros(nodes.shape[0])
+    #for i,node in tqdm(enumerate(nodes)):
+    for i, node_id in tqdm(enumerate(node_ids)): 
+        tree.seek(start)
+        children = list()
+        parents = list()
+        is_root[i] = tree.is_root(node_id)
+        node_children = list(tree.children(node_id))
+
+        children.extend(node_children)
+        parents.append(tree.parent(node_id))
+
+        w = (None, tree.interval[0])
+        while w[1] < end and tree.next():
+            w = (w[1], min(tree.interval[1], end))
+            is_root[i] = tree.is_root(node_id)
+            node_children = list(tree.children(node_id))
+
+            children.extend(node_children)
+            parents.append(tree.parent(node_id))
+
+        distinct_parents.append(np.unique(parents))
+        distinct_children.append(np.unique(children))
+        num_children[i] = np.unique(children).shape[0]
+        num_parents[i] = np.unique(parents).shape[0]
+    
+    data_dict = {
+        'id': node_ids,
+        'num_children': num_children,
+        'distinct_children': distinct_children,
+        'distinct_parents': distinct_parents,
+        'num_parents': num_parents,
+        'is_sample': is_sample,
+        'is_root': is_root,
+    }
+    return pd.DataFrame(data_dict)

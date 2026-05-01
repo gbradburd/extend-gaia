@@ -4,3 +4,5 @@ venv/
 ENV/
 *.trees
 *.csv
+outdated-csv-files/
+tree-files/
