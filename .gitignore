@@ -3,6 +3,7 @@ bioenv/
 venv/
 ENV/
 *.trees
-*.csv
+output/
 outdated-csv-files/
 tree-files/
+.Renviron

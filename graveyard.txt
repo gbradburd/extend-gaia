@@ -482,3 +482,94 @@ def get_node_stats(ts):
         'is_root': is_root,
     }
     return pd.DataFrame(data_dict)
+
+
+
+
+
+
+    S0_2_R0_child = pd.read_csv("output/S0.2-R0_child_results.csv")
+S0_2_R0_node = pd.read_csv("output/S0.2-R0_node_stats.csv")
+S0_2_R0_parent = pd.read_csv("output/S0.2-R0_parent_results.csv")
+S0_2_R0_static = pd.read_csv("output/S0.2-R0_static_info.csv")
+S0_2_R0_unary = pd.read_csv("output/S0.2-R0_unary_results.csv")
+# # S0_2_R0_child.head()
+
+# S0_2_R1_child = pd.read_csv("S0.2-R1_child_results.csv")
+# S0_2_R1_node = pd.read_csv("S0.2-R1_node_stats.csv")
+# S0_2_R1_parent = pd.read_csv("S0.2-R1_parent_results.csv")
+# S0_2_R1_static = pd.read_csv("S0.2-R1_static_info.csv")
+# S0_2_R1_unary = pd.read_csv('S0.2-R1_unary_results.csv')
+
+# S0_2_R2_child = pd.read_csv("S0.2-R2_child_results.csv")
+# S0_2_R2_node = pd.read_csv("S0.2-R2_node_stats.csv")
+# S0_2_R2_parent = pd.read_csv("S0.2-R2_parent_results.csv")
+# S0_2_R2_static = pd.read_csv("S0.2-R2_static_info.csv")
+# S0_2_R2_unary = pd.read_csv("S0.2-R2_unary_results.csv")
+
+# S0_2_R3_child = pd.read_csv("S0.2-R3_child_results.csv")
+# S0_2_R3_node = pd.read_csv("S0.2-R3_node_stats.csv")
+# S0_2_R3_parent = pd.read_csv("S0.2-R3_parent_results.csv")
+# S0_2_R3_static = pd.read_csv("S0.2-R3_static_info.csv")
+# S0_2_R3_unary = pd.read_csv("S0.2-R3_unary_results.csv")
+
+S0_5_R0_child = pd.read_csv("S0.5-R0__child_results.csv")
+S0_5_R0_node = pd.read_csv("S0.5-R0__node_stats.csv")
+S0_5_R0_parent = pd.read_csv("S0.5-R0__parent_results.csv")
+S0_5_R0_static = pd.read_csv("S0.5-R0__static_info.csv")
+S0_5_R0_time = pd.read_csv("S0.5-R0__time.csv")
+S0_5_R0_unary = pd.read_csv("S0.5-R0__unary_results.csv")
+
+S0_5_R1_child = pd.read_csv("S0.5-R1__child_results.csv")
+S0_5_R1_node = pd.read_csv("S0.5-R1__node_stats.csv")
+S0_5_R1_parent = pd.read_csv("S0.5-R1__parent_results.csv")
+S0_5_R1_static = pd.read_csv("S0.5-R1__static_info.csv")
+S0_5_R1_time = pd.read_csv("S0.5-R1__time.csv")
+S0_5_R1_unary = pd.read_csv("S0.5-R1__unary_results.csv")
+
+S0_5_R2_child = pd.read_csv("S0.5-R2__child_results.csv")
+S0_5_R2_node = pd.read_csv("S0.5-R2__node_stats.csv")
+S0_5_R2_parent = pd.read_csv("S0.5-R2__parent_results.csv")
+S0_5_R2_static = pd.read_csv("S0.5-R2__static_info.csv")
+S0_5_R2_time = pd.read_csv("S0.5-R2__time.csv")
+S0_5_R2_unary = pd.read_csv("S0.5-R2__unary_results.csv")
+
+S0_8_R0_child = pd.read_csv("S0.8-R0__child_results.csv")
+S0_8_R0_node = pd.read_csv("S0.8-R0__node_stats.csv")
+S0_8_R0_parent = pd.read_csv("S0.8-R0__parent_results.csv")
+S0_8_R0_static = pd.read_csv("S0.8-R0__static_info.csv")
+S0_8_R0_time = pd.read_csv("S0.8-R0__time.csv")
+S0_8_R0_unary = pd.read_csv("S0.8-R0__unary_results.csv")
+
+
+S0_8_R1_child = pd.read_csv("S0.8-R1__child_results.csv")
+S0_8_R1_node = pd.read_csv("S0.8-R1__node_stats.csv")
+S0_8_R1_parent = pd.read_csv("S0.8-R1__parent_results.csv")
+S0_8_R1_static = pd.read_csv("S0.8-R1__static_info.csv")
+S0_8_R1_time = pd.read_csv("S0.8-R1__time.csv")
+S0_8_R1_unary = pd.read_csv("S0.8-R1__unary_results.csv")
+
+
+S1_1_R0_child = pd.read_csv("S1.1-R0__child_results.csv")
+S1_1_R0_node = pd.read_csv("S1.1-R0__node_stats.csv")
+S1_1_R0_parent = pd.read_csv("S1.1-R0__parent_results.csv")
+S1_1_R0_static = pd.read_csv("S1.1-R0__static_info.csv")
+S1_1_R0_time = pd.read_csv("S1.1-R0__time.csv")
+S1_1_R0_unary = pd.read_csv("S1.1-R0__unary_results.csv")
+
+# S1_1_R1_child = pd.read_csv("S1.1-R1__child_results.csv")
+# S1_1_R1_node = pd.read_csv("S1.1-R1__node_stats.csv")
+# S1_1_R1_parent = pd.read_csv("S1.1-R1__parent_results.csv")
+# S1_1_R1_static = pd.read_csv("S1.1-R1__static_info.csv")
+# S1_1_R1_time = pd.read_csv("S1.1-R1__time.csv")
+# S1_1_R1_unary = pd.read_csv("S1.1-R1__unary_results.csv")
+
+S1_1_R2_child = pd.read_csv("S1.1-R2__child_results.csv")
+S1_1_R2_node = pd.read_csv("S1.1-R2__node_stats.csv")
+S1_1_R2_parent = pd.read_csv("S1.1-R2__parent_results.csv")
+S1_1_R2_static = pd.read_csv("S1.1-R2__static_info.csv")
+S1_1_R2_time = pd.read_csv("S1.1-R2__time.csv")
+S1_1_R2_unary = pd.read_csv("S1.1-R2__unary_results.csv")
+
+
+
