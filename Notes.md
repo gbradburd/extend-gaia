@@ -43,6 +43,11 @@ threshold nodes that were extended the most and nodes with the highest differenc
     - did they have error in extension? how much extended? lots of parents not lots of parents? lots of children not lots of children? 
     how many trees did it get extended into?
 
+
+- in s1.1 there is more variation between the args - some of them gaia does well on some it doesnt, when gaia does poorly extending helps ~ the same amount 
+- trying to figure out why gaia is doing bad on these particular examples 
+- to do with gaia not extension 
+
 think more about how gaia actually works when were doing this 
 
 
