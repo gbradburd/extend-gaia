@@ -47,16 +47,16 @@ timing = function(file_path, prefix)
     locs = locations(ets)
     sample_locations = locs[locs[,2] == 1, c(1,3,4)]
 
-    stsq_start = Sys.time()
-    sq_mpr = treeseq_quadratic_mpr(sts, sample_locations, TRUE)
-    stsq_stop = Sys.time()
-    sts_elapsed_quadratic_mpr = unclass(stsq_stop - stsq_start)[1]
+    # stsq_start = Sys.time()
+    # sq_mpr = treeseq_quadratic_mpr(sts, sample_locations, TRUE)
+    # stsq_stop = Sys.time()
+    # sts_elapsed_quadratic_mpr = unclass(stsq_stop - stsq_start)[1]
 
 
-    etsq_start = Sys.time()
-    eq_mpr = treeseq_quadratic_mpr(ets, sample_locations, TRUE)
-    etsq_stop = Sys.time()
-    ets_elapsed_quadratic_mpr = unclass(etsq_stop - etsq_start)[1]
+    # etsq_start = Sys.time()
+    # eq_mpr = treeseq_quadratic_mpr(ets, sample_locations, TRUE)
+    # etsq_stop = Sys.time()
+    # ets_elapsed_quadratic_mpr = unclass(etsq_stop - etsq_start)[1]
 
     # stsl_start = Sys.time()
     # sl_mpr = treeseq_linear_mpr(sts, sample_locations, TRUE)
@@ -69,14 +69,26 @@ timing = function(file_path, prefix)
     # etsl_stop = Sys.time()
     # ets_elapsed_linear_mpr = unclass(etsl_stop - etsl_start)[1]
 
+
+    stsd_start = Sys.time()
+    sd_mpr = treeseq_discrete_mpr(sts, sample_locations, TRUE)
+    stsd_stop = Sys.time()
+    sts_elapsed_discrete_mpr = unclass(stsd_stop - stsd_start)[1]
+
+
+    etsd_start = Sys.time()
+    ed_mpr = treeseq_discrete_mpr(ets, sample_locations, TRUE)
+    etsd_stop = Sys.time()
+    ets_elapsed_discrete_mpr = unclass(etsd_stop - etsd_start)[1]
+
     # got this error when ran with linear mpr R: treeseq_sankoff_linear.c:341: plf_add: Assertion `fequals(slope[0], 0)' failed.
 
     timings = data.frame(
-      method = c("sts_quadratic", "ets_quadratic"),
-      elapsed_time = c(sts_elapsed_quadratic_mpr, ets_elapsed_quadratic_mpr)
+      method = c("sts_discrete", "ets_discrete"),
+      elapsed_time = c(sts_elapsed_discrete_mpr, ets_elapsed_discrete_mpr)
     )
 
-    write.csv(timings, glue("{prefix}_timing_results.csv"), row.names = FALSE)
+    write.csv(timings, glue("{prefix}_discrete_timing_results.csv"), row.names = FALSE)
     
 
   }# timing 

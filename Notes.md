@@ -35,3 +35,44 @@ figure out python reticulate so can run tskit stuff in R
 add extrea space to 0.2 file names so its consistent 
 
 
+
+
+investigate examples with high error change between replicates - some examples dont change mucg bw replicates some do 
+compare like proportions of nodes that were extended and by how much between examples both replicates and other sigmas 
+threshold nodes that were extended the most and nodes with the highest difference in error 
+    - did they have error in extension? how much extended? lots of parents not lots of parents? lots of children not lots of children? 
+    how many trees did it get extended into?
+
+think more about how gaia actually works when were doing this 
+
+
+something in the arg itself thats happening that we have to figure out 
+
+
+get data on number of trees its in before and post extension 
+
+
+try linear R
+    - just doesnt work doesnt work 
+    R: treeseq_sankoff_linear.c:341: plf_add: Assertion `fequals(slope[0], 0)' failed.
+try in quadratic R
+    - ets is slightly slower 
+
+try on fast gaia in argscape
+    - ets is faster in fast gaia
+try on quadratic gaia in argscape
+    - 
+
+try in discrete time 
+
+try in python quadratic 
+    - ets is slightly slower 
+try in python linear
+    - ets is slightly slower 
+
+
+
+in ets we add and remove less edges so why is gaia slower?
+
+look into what sankoff era means ?
+try linear on different arg 
