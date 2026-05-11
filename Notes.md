@@ -57,18 +57,21 @@ try linear R
     R: treeseq_sankoff_linear.c:341: plf_add: Assertion `fequals(slope[0], 0)' failed.
 try in quadratic R
     - ets is slightly slower 
+try in discrete R
+    - 
 
 try on fast gaia in argscape
     - ets is faster in fast gaia
 try on quadratic gaia in argscape
-    - 
+    - ets is faster 
+try on linear gaia in argscape 
 
-try in discrete time 
 
 try in python quadratic 
     - ets is slightly slower 
 try in python linear
     - ets is slightly slower 
+python discrete is not implemented 
 
 
 
