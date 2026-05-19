@@ -84,3 +84,16 @@ in ets we add and remove less edges so why is gaia slower?
 
 look into what sankoff era means ?
 try linear on different arg 
+
+
+- run t tests across simulations 
+- why faster in argscape and not others?
+    - dont really need to 
+- mostly small reduction in speed 
+- getting plots of total accuracy and significance of accuracy gains 
+        - allow to zoom in on what the story is 
+        - presumably accuracy does increase just more nuanced 
+        - across simulations and sigma how does accuracy increase and for what time depths 
+        - once know this be able to figure out sort of precicly what the story is 
+- finish getting replications - go up from 9 to 20 replications 
+- stick in python 
