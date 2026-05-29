@@ -97,3 +97,14 @@ try linear on different arg
         - once know this be able to figure out sort of precicly what the story is 
 - finish getting replications - go up from 9 to 20 replications 
 - stick in python 
+
+
+
+
+total accuracy & significance of accuracy gains (one histogram per sigma) 
+total accuracy as function of sigma (mean & SE across sim reps per sigma)
+accuracy as a function of time (one per sigma)
+accuracy as a function of total extension (one per sigma)
+accuracy of proportion correct extension (one per sigma)
+
+
