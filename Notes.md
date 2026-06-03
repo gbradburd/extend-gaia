@@ -107,4 +107,18 @@ accuracy as a function of time (one per sigma)
 accuracy as a function of total extension (one per sigma)
 accuracy of proportion correct extension (one per sigma)
 
+log y axis in second one - to see more difference in error - still too close? make it into a table 
+bold face the lowest one 
 
+why decrease in error at deeper times? gaia thing but interesting to look at 
+
+if wanna smash all graphs together in last one - make it one with all the lines color code and dash / dot them 
+
+
+
+
+for the green
+p values bigger in the one with those 
+just write the labels on the left side or just on the bottom
+p value bold and on the plot 
+maybe legend function/argument?
