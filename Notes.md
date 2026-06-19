@@ -122,3 +122,11 @@ p values bigger in the one with those
 just write the labels on the left side or just on the bottom
 p value bold and on the plot 
 maybe legend function/argument?
+
+
+        on indv subplot graphs fix the y axis so can see relationship across sigma 
+        add log to the ones that logged
+fix goofed graphg
+        make sigma one a table 
+
+email
