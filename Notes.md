@@ -129,4 +129,13 @@ maybe legend function/argument?
 fix goofed graphg
         make sigma one a table 
 
-email
+
+
+
+
+
+add std dev on points - similar to adding another trace 
+s       implify tabke more - 3 sig figs 
+- boldface the one thats the best result 
+
+could do a difference test - hypothesis testing that difference in error = 0 

@@ -573,3 +573,122 @@ S1_1_R2_unary = pd.read_csv("S1.1-R2__unary_results.csv")
 
 
 
+
+# def accuracy_vs_time(master_df, node_type, num_bins):
+  
+#     time_col = f"{node_type}_node_time"
+#     sts_col = f"{node_type}_sts_error"
+#     ets_col = f"{node_type}_ets_error"
+
+#     unique_sigmas = sorted(master_df["sigma"].unique())
+#     num_plots = len(unique_sigmas)
+
+
+#     cols = min(3, num_plots)
+#     rows = (num_plots + cols - 1) // cols
+
+#     fig = make_subplots(
+#         rows=rows,
+#         cols=cols,
+#         subplot_titles=[f"<b>sigma = {s}</b>" for s in unique_sigmas],
+#         horizontal_spacing=0.06,
+#         vertical_spacing=0.15,
+#         # shared_yaxes=True,
+#     )
+
+#     for idx, sigma_val in enumerate(unique_sigmas):
+#         sigma_data = master_df[master_df["sigma"] == sigma_val].copy()
+
+#         sigma_data["time_bin"] = pd.qcut(sigma_data[time_col], q=num_bins, labels=False, duplicates="drop")
+
+#         binned_df = (
+#             sigma_data.groupby("time_bin")
+#             .agg({time_col: "mean", sts_col: "mean", ets_col: "mean"})
+#             .sort_values(time_col)
+#         )
+
+#         r = (idx // cols) + 1
+#         c = (idx % cols) + 1
+
+
+#         fig.add_trace(
+#             go.Scatter(
+#                 x=binned_df[time_col],
+#                 y=binned_df[sts_col],
+#                 error_y=dict(
+#                     type="data",
+#                     array=binned_df["standard error goes her e"],
+#                     visible=True,
+#                     thickness=1.5,
+#                     width=4,
+#                 ),
+#                 mode="lines+markers",
+#                 name="Simplified",
+#                 line=dict(color="rgba(253, 179, 056, 1.0)", width=2),
+#                 marker=dict(size=5),
+#                 showlegend=(idx == 0),
+#             ),
+#             row=r,
+#             col=c,
+#         )
+
+
+        
+#     # fig.add_trace(
+#     #     go.Scatter(
+#     #         x=stats_df["sigma"],
+#     #         y=stats_df["ets_mean"],
+#     #         error_y=dict(
+#     #             type="data",
+#     #             array=stats_df["ets_sem"],
+#     #             visible=True,
+#     #             thickness=1.5,
+#     #             width=4,
+#     #         ),
+#     #         mode="lines+markers",
+#     #         name="Extended",
+#     #         line=dict(color="rgba(002, 081, 150, 0.5)", width=2.5),
+#     #         marker=dict(size=8),
+#     #     )
+#     # )
+
+  
+#         fig.add_trace(
+#             go.Scatter(
+#                 x=binned_df[time_col],
+#                 y=binned_df[ets_col],
+#                 mode="lines+markers",
+#                 name="Extended",
+#                 line=dict(color="rgba(002, 081, 150, 1)", width=2),
+#                 marker=dict(size=5),
+#                 showlegend=(idx == 0),
+#             ),
+#             row=r,
+#             col=c,
+#         )
+
+#     if node_type == 'unary':
+#         title_type = 'Extended'
+#     elif node_type == 'parent':
+#         title_type = 'Parent'
+#     else:
+#         title_type = 'Child'
+   
+#     fig.update_layout(
+#         title=dict(
+#             text=f"Error Across Time in {title_type} Nodes",
+#             x=0.5,
+#             xanchor="center",
+#             font=dict(size=16),
+#         ),
+#         template="plotly_white",
+#         height=320 * rows + 120,
+#         width=360 * cols + 80,
+#         margin=dict(t=140, b=60, l=60, r=40),
+#         hovermode="x unified",
+#     )
+
+#     fig.update_yaxes(matches='y')
+#     fig.update_xaxes(title_text="Node Time")
+#     fig.update_yaxes(title_text="Mean Error")
+#     fig.show()
