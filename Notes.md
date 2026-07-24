@@ -166,3 +166,31 @@ if id does - what do we do ? decide
 
 - run some absolute error on all nodes - see if it increases with age 
 - 
+
+
+
+
+
+incorrect extnedsion ind eep time - why extension worse deep dtime 
+
+deep debugging session 
+
+
+fixed listing parents of roots nodes as -1 
+added some safety assertions just in case
+running get node stats on ets not ts, since everything else based on get node stats is for the extended tree 
+big one is fixed column splicing in gettign the error measurements 
+set the node stats indexes as index
+added the filter nodes thing to tyr and stop simpliyyf recasting ids
+
+  sts = ts.simplify(filter_nodes=False)
+
+got this output when ran with the filter nodes thing 
+done with getting stuff before attempting multiprocessing
+done with worker node spans
+100%|██████████| 10756/10756 [01:56<00:00, 92.45it/s] 
+done worker get node stats
+done span stats
+done worker span stats
+/home/islar/bradburdlab/tree_project/extend-gaia/bioenv/lib/python3.12/site-packages/gaiapy/core/quadratic.py:409: RuntimeWarning: invalid value encountered in divide
+  optimal_locations[node] = -linear_coeffs / (2 * p0)
