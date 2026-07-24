@@ -139,3 +139,30 @@ s       implify tabke more - 3 sig figs
 - boldface the one thats the best result 
 
 could do a difference test - hypothesis testing that difference in error = 0 
+
+
+
+
+sanity check accuracy of all the nodes - extended parent children etc etc 
+
+mike does error in units of range size - explains why no relationhip there bc errpr re;ative to range size is smaller 
+
+plots of total accuracy - mak sure nothing insane isnt happening why not relationship within sigma between depth of age and accuracy 
+
+across simulations do absolute error rather than relative error - then see relationship b.w dispersal and error
+
+look at accurcy through time and confirm that absolute error scales with diserpcal 
+if does - then think we should thats good 
+if dostn then issue somewhere in pipeline 
+
+
+if absolute error fo all nodes doesnt increase with age - then skmethings wrong - worth mining finding whats wrong 
+
+if id does - what do we do ? decide 
+
+
+
+
+
+- run some absolute error on all nodes - see if it increases with age 
+- 
